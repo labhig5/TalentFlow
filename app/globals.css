@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+:root {
+  --background: #06070d;
+  --foreground: #f8fafc;
+  --card: rgba(15, 23, 42, 0.98);
+  --muted: #b0c2d8;
+  --muted-bg: rgba(15, 23, 42, 0.70);
+  --border: rgba(148, 163, 184, 0.18);
+  --border-strong: rgba(148, 163, 184, 0.3);
+  --ring: rgba(79, 70, 229, 0.18);
+  --accent: #9d7ff5;
+  --accent-blue: #7b6cf2;
+  --accent-muted: rgba(125, 87, 255, 0.2);
+  --accent-glow: rgba(110, 90, 238, 0.24);
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-muted: var(--muted);
+  --color-muted-bg: var(--muted-bg);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-blue: var(--accent-blue);
+  --color-accent-muted: var(--accent-muted);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background: radial-gradient(circle at top, rgba(79, 70, 229, 0.08), transparent 20%), var(--background);
+  color: var(--foreground);
+  font-feature-settings: "rlig" 1, "calt" 1;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::placeholder {
+  color: rgba(248, 250, 252, 0.72);
+}
+
+* {
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+::selection {
+  background: var(--accent-muted);
+  color: var(--foreground);
+}
+
+.bg-grid {
+  background-color: var(--background);
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.bg-grid-fade {
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, black 20%, transparent 75%);
+}
+
+@layer utilities {
+  .surface {
+    background: var(--card);
+    border: 1px solid var(--border);
+    box-shadow: 0 14px 60px -45px rgba(0, 0, 0, 0.65);
+  }
+
+  .surface-hover {
+    transition-property: border-color, box-shadow, transform;
+    transition-duration: 0.2s;
+  }
+
+  .surface-hover:hover {
+    border-color: var(--border-strong);
+    box-shadow: 0 20px 70px -45px rgba(0, 0, 0, 0.6);
+    transform: translateY(-1px);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-blue) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .bg-accent-gradient {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-blue) 100%);
+  }
+
+  .btn-accent {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-blue) 100%);
+    color: var(--foreground);
+    box-shadow: 0 10px 30px -20px rgba(79, 70, 229, 0.9);
+  }
+
+  .btn-accent:hover {
+    opacity: 0.96;
+    box-shadow: 0 14px 40px -22px rgba(79, 70, 229, 0.95);
+  }
+
+  .page-y {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .section-y {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .page-y {
+      padding-top: 2.5rem;
+      padding-bottom: 2.5rem;
+    }
+
+    .section-y {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+  }
+}
