@@ -159,6 +159,31 @@ flowchart TD
   PostJob --> Data
 ```
 
+![Application flow](images/app-flow.svg)
+
+<details>
+<summary>Mermaid source (click to expand)</summary>
+
+```mermaid
+flowchart TD
+  User[User]
+  Site[Next.js App]
+  JobsList[Jobs Listing]
+  JobDetail[Job Detail]
+  PostJob[Post Job Form]
+  Data[Data Source (data/jobs.json or API)]
+
+  User --> Site
+  Site --> JobsList
+  JobsList --> JobDetail
+  Site --> PostJob
+  JobsList --> Data
+  JobDetail --> Data
+  PostJob --> Data
+```
+
+</details>
+
 **CI/CD flow**
 
 ```mermaid
@@ -172,6 +197,25 @@ flowchart LR
 
   Dev --> GH --> Build --> Artifact --> Vercel --> Prod
 ```
+
+![CI/CD flow](images/ci-flow.svg)
+
+<details>
+<summary>Mermaid source (click to expand)</summary>
+
+```mermaid
+flowchart LR
+  Dev[Dev / GitHub Push]
+  GH[GitHub Actions CI]
+  Build[Build & Lint]
+  Artifact[Upload Artifact]
+  Vercel[Vercel Deploy]
+  Prod[Production Site]
+
+  Dev --> GH --> Build --> Artifact --> Vercel --> Prod
+```
+
+</details>
 
 ## Architecture notes and extension points
 - Replace `data/jobs.json` with a database (Postgres, MongoDB) or external API; implement server-side API routes to read/write jobs.

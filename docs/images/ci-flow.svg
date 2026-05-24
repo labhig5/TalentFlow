@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="200" viewBox="0 0 900 200">
+  <style>
+    .box { fill: #0f1724; stroke: #e6eef8; stroke-opacity:0.08; rx:10; }
+    .label { fill: #f8fafc; font-family: Inter, Arial, sans-serif; font-size:13px; }
+    .small { fill: #b8c6d9; font-size:12px; }
+    .arrow { stroke: #9fb0cc; stroke-width:2; fill:none; marker-end: url(#arrowhead);} 
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#9fb0cc" />
+    </marker>
+  </defs>
+
+  <rect x="20" y="30" width="140" height="48" class="box" rx="8"/>
+  <text x="90" y="60" text-anchor="middle" class="label">Dev (push)</text>
+
+  <rect x="190" y="30" width="170" height="48" class="box" rx="8"/>
+  <text x="275" y="60" text-anchor="middle" class="label">GitHub Actions CI</text>
+
+  <rect x="390" y="30" width="140" height="48" class="box" rx="8"/>
+  <text x="460" y="60" text-anchor="middle" class="label">Build & Lint</text>
+
+  <rect x="560" y="30" width="160" height="48" class="box" rx="8"/>
+  <text x="640" y="60" text-anchor="middle" class="label">Upload Artifact</text>
+
+  <rect x="740" y="30" width="120" height="48" class="box" rx="8"/>
+  <text x="800" y="60" text-anchor="middle" class="label">Vercel</text>
+
+  <path class="arrow" d="M160 54 L190 54" />
+  <path class="arrow" d="M360 54 L390 54" />
+  <path class="arrow" d="M530 54 L560 54" />
+  <path class="arrow" d="M700 54 L740 54" />
+
+  <text x="275" y="80" text-anchor="middle" class="small">checkout → install</text>
+  <text x="460" y="80" text-anchor="middle" class="small">npm run lint / build</text>
+  <text x="640" y="80" text-anchor="middle" class="small">.next artifact</text>
+
+</svg>
